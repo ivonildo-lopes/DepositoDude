@@ -8,28 +8,6 @@
 	<packaging>war</packaging>
 
 	<dependencies>
-		<!-- job -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.mockito</groupId> -->
-<!-- 			<artifactId>mockito-all</artifactId> -->
-<!-- 			<version>1.9.0</version> -->
-<!-- 			<scope>test</scope> -->
-<!-- 		</dependency> -->
-
-		<!-- https://mvnrepository.com/artifact/org.quartz-scheduler/quartz -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.quartz-scheduler</groupId> -->
-<!-- 			<artifactId>quartz</artifactId> -->
-<!-- 			<version>2.2.1</version> -->
-<!-- 		</dependency> -->
-
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.quartz-scheduler</groupId> -->
-<!-- 			<artifactId>quartz-jobs</artifactId> -->
-<!-- 			<version>2.2.1</version> -->
-<!-- 		</dependency> -->
-
-
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -51,7 +29,6 @@
 			<version>3.0.1</version>
 		</dependency>
 
-
 		<!-- Mojarra JSF -->
 		<dependency>
 			<groupId>org.glassfish</groupId>
@@ -65,7 +42,6 @@
 			<version>1.7</version>
 			<scope>compile</scope>
 		</dependency>
-
 
 		<!-- biblioteca de Componentes -->
 		<dependency>
@@ -97,7 +73,6 @@
 			<scope>compile</scope>
 		</dependency>
 
-
 		<!-- CDI -->
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
@@ -120,7 +95,6 @@
 			<version>4.3.6.Final</version>
 		</dependency>
 
-
 		<!-- Implementacao do Bean Validation <version>5.0.1.Final</version> ou 
 			<version>5.3.0.Final</version> -->
 		<dependency>
@@ -137,18 +111,11 @@
 			<version>5.0.1.Final</version>
 		</dependency>
 
-
-
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4-1201-jdbc41</version>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>mysql</groupId> -->
-		<!-- <artifactId>mysql-connector-java</artifactId> -->
-		<!-- <version>5.1.38</version> -->
-		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -194,6 +161,29 @@
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.7</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner</artifactId>
+									<version>8.5.5.0</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
